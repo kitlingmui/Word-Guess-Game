@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+header {
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: violet;
+    text-align: center;
+}
+
+#Guess {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    line-height: 5;
+}
+
+#line {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 2;
+}
+
+#winCount, #loseCount, #GuessLeftCount, #guessLetter, #theWord{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: yellow;
+}
+
+#theWord, #guessLetter {
+    letter-spacing: 8px;
+}
