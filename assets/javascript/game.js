@@ -32,6 +32,12 @@ function resetArray(arr) {
     }
 }
 
+function emptyArray (arr) {
+    while(arr.length > 0) {
+        a.pop();
+    }
+}
+
 // Update Current Guess with userInput
 // function updateCurrentGuess(tempWord) {
 //     for (let i=0; i< currentWord.length; i++) {
@@ -44,7 +50,7 @@ function resetArray(arr) {
 function restartRound(){
     currentWord = randWord(allWords)
     resetArray(currentGuesses)
-    resetArray(userInputArr)
+    emptyArray(userInputArr)
     guessLeftCnt = 12
     display()
 }
