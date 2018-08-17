@@ -7,7 +7,6 @@ var loseCnt = 0;
 var guessLeftCnt = 12; // 12 trials
 var userInputArr = [];
 var currentGuesses = [];
-//var tmpWord = '';
 
 // Get a Random word
 function randWord (arr){
@@ -27,25 +26,27 @@ function display() {
 
 //Set Random word display
 function resetArray(arr) {
-    for (let i=0; i<arr.length; i++){
+    for (let i=0; i<currentWord.length; i++){
         arr[i] = ('_')
     }
 }
 
-function emptyArray (arr) {
-    while(arr.length > 0) {
-        a.pop();
+function emptyArray (arr2) {
+    while(arr2.length > 0) {
+        arr2.pop();
     }
 }
 
-// Update Current Guess with userInput
-// function updateCurrentGuess(tempWord) {
-//     for (let i=0; i< currentWord.length; i++) {
-//         if(currentWord(i) === tempWord) {
-//             tmpWord.push(currentGuesses(i));
-//         }
-//     }
-// }
+//Update Current Guess with userInput
+//To be fixed
+function updateCurrentGuess(tempWord) {
+    for (let i=0; i< currentWord.length; i++) {
+        if(currentWord.charAt(i) === tempWord) {
+            currentGuesses[i].push(tempWord);
+        }
+    }
+    console.log(currentGuesses);
+}
 
 function restartRound(){
     currentWord = randWord(allWords)
@@ -60,43 +61,25 @@ function restartRound(){
 // Calling functions to start the game.
 restartRound()
 
-
 //When the user presses a key, it will run the following function...
 document.addEventListener('keypress', function(e) {
      // Determine which key was pressed, make it lowercase, and set it to the userInput variable.
     var userInput = e.key.toLocaleLowerCase();
     userInputArr.push(userInput);
-
-    //updateCurrentGuess(userInput);
-    var compareWord = ''
-    //currentGuesses.join("");
+    updateCurrentGuess(userInput);
 
     if (guessLeftCnt <= 0) {
         loseCnt++;  
         restartRound()
     }
-    else if (compareWord === currentWord) {
-        winCnt++;
-        restartRound();
-    }
+    // To be fixed
+    // else if (currentGuesses.join("") === currentWord) {
+    //     winCnt++;
+    //     restartRound();
+    // }
     else 
     {
         guessLeftCnt--;
         display()
-    }
+    }  
 });
-
-//    //If they guess the correct letter, increase and update score.
-//         if (userInput === randomLtr && guessLeftCnt > 0 ) 
-//         {
-//             winCnt++
-//             guessLeftCnt = 5
-//             randomLtr = getrandomLetter()
-//             resetArray(userInputlist)
-//             display()
-//         }
-//         // If wrong, check if any Guess Left Count and update counters
-//         else 
-//         {
-//             
-//             display()
