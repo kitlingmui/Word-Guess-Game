@@ -92,7 +92,7 @@ function updateGuess(word) {
         if (guessLeftCnt <= 0) {
             loseCnt++
             display();
-            alert("You lose!")
+            alert("The correct word is " + currentWord + "\n" + "You lose!")
             restartRound(); 
         }          
     }
