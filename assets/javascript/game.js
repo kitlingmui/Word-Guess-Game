@@ -81,14 +81,14 @@ function userInputValidate(word){
 // display alert and restart the for new round if need
 function updateGuess(word) {   
     for (var i = 0; i < currentWord.length; i++) {
-        if (currentWord.charAt(i)=== word){
+        if (currentWord.charAt(i) === word){
             currentGuesses[i] = word
         }     
         display()
     }
 
     if ( is_in_array(currentGuesses,hidechar) ) {
-        display;  
+        display();  
         if (guessLeftCnt <= 0) {
             loseCnt++
             display();
@@ -97,6 +97,7 @@ function updateGuess(word) {
         }          
     }
     else { 
+        display(); 
         winCnt++;
         alert("Your Guess is " + currentGuesses.join("") + "\n" + "You win!")
         restartRound();    
@@ -122,8 +123,8 @@ document.addEventListener('keypress', function(e) {
      // Determine which key was pressed, make it lowercase, 
      // and set it to the userInput variable.
      // If input was entered twice, do not count and deduct the guess left
-     console.log(guessLeftCnt )      
-     if (guessLeftCnt > 0){
+
+     if (guessLeftCnt >= 0){
         var userInput = e.key.toLowerCase(); 
         userInputValidate(userInput);
         display();
